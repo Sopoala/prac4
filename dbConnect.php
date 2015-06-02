@@ -13,6 +13,7 @@ Class DBConnect{
             $con = sqlsrv_connect($host, array("UID"=>$user, "PWD"=>$password, "Database"=>$db));
             
             $this->conn = $con;
+            echo('connected!');
         }
         catch(Exception $ex){
             printf($ex->getMessage());
