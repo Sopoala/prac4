@@ -18,11 +18,12 @@ $fp = fopen($count_my_page , "w");
 fputs($fp , "$hits[0]");
 fclose($fp);
 ?>
+<center>
     <p><h1>Total number of visits: <?php echo $hits[0]; ?></></p>
     <p><h2> Auto Refresh Every 2 Seconds</h2></p>
     <p><h3>Current Time: <?php date_default_timezone_set('Australia/Melbourne');
         $date = date('m/d/Y h:i:s a', time());
         echo $date;?></h3></p>
-
+</center>
 </body>
 </html>
