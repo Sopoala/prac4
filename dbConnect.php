@@ -1,6 +1,6 @@
 <?php
 Class DBConnect{
-      public $host = 'myprac-server.database.windows.net';
+      public $host = 'myprac-server';
       private $user = 'randy';
       private $password = 'Sopoala717';
       public $db = 'myprac-db';
@@ -10,7 +10,7 @@ Class DBConnect{
 
       public function connect(){
         try{
-            $con = mysqli_connect($this->host,$this->user,$this->password,$this->db) or die("Could not connect");
+            $con = sqlsrv_connect($host, array("UID"=>$user, "PWD"=>$password, "Database"=>$db));
             
             $this->conn = $con;
         }
@@ -20,7 +20,7 @@ Class DBConnect{
       }
       
       public function Close($conn){
-        mysqli_close($conn);
+        $conn = null;
       }
 }
 ?>
