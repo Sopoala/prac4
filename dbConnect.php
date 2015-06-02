@@ -10,10 +10,10 @@ Class DBConnect{
 
       public function connect(){
         try{
-            $con = sqlsrv_connect($host, array("UID"=>$user, "PWD"=>$password, "Database"=>$db));
+            $con = sqlsrv_connect('myprac-server',array("UID"=>'randy',"PWD"=>'Sopoala717',"Database"=>'myprac-db'));
             
             $this->conn = $con;
-            echo('connected!');
+      
         }
         catch(Exception $ex){
             printf($ex->getMessage());
