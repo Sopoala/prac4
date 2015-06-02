@@ -1,13 +1,17 @@
 <?php
 Class DBConnect{
-    public $host;
+    public $host = 'au-cdbr-azure-east-a.cloudapp.net';
+    private $user = 'b70cdb3db9cf13';
+    private $password = 'fdad6b7c';
+    public $db = 'mypracdb';
     public $conn;
+
     function __construct(){}
+
     public function connect(){
         try{
-            $host = 'tcp:myprac-server.database.windows.net,1433';
-            $connectionInfo = array("UID" => "randy@myprac-server", "pwd" => "Sopoala717", "Database" => "myprac-db", "LoginTimeout" => 30, "Encrypt" => 1);
-            $this->conn = sqlsrv_connect($host, $connectionInfo);
+            $con = mysqli_connect($this->host,$this->user,$this->password,$this->db) or die("Could not connect");
+            $this->conn = $con;
         }
         catch(Exception $ex){
             printf($ex->getMessage());
@@ -15,7 +19,7 @@ Class DBConnect{
     }
 
     public function Close($conn){
-        sqlsrv_close($conn);
+        mysqli_close($conn);
     }
 }
 ?>
