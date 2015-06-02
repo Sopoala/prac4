@@ -1,26 +1,21 @@
 <?php
 Class DBConnect{
-      public $host = 'localhost';
-      private $user = 'test';
-      private $password = 'test';
-      public $db = 'test';
-      public $conn;
-
-      function __construct(){}
-
-      public function connect(){
+    public $host;
+    public $conn;
+    function __construct(){}
+    public function connect(){
         try{
-            $con = mysqli_connect($this->host,$this->user,$this->password,$this->db) or die("Could not connect");
-            
-            $this->conn = $con;
+            $host = 'tcp:myprac-server.database.windows.net,1433';
+            $connectionInfo = array("UID" => "randy@myprac-server", "pwd" => "Sopoala717", "Database" => "myprac-db", "LoginTimeout" => 30, "Encrypt" => 1);
+            $this->conn = sqlsrv_connect($host, $connectionInfo);
         }
         catch(Exception $ex){
             printf($ex->getMessage());
         }
-      }
-      
-      public function Close($conn){
-        mysqli_close($conn);
-      }
+    }
+
+    public function Close($conn){
+        sqlsrv_close($conn);
+    }
 }
 ?>
