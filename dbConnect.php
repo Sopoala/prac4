@@ -1,9 +1,9 @@
 <?php
 Class DBConnect{
-      public $host = 'localhost';
-      private $user = 'test';
-      private $password = 'test';
-      public $db = 'test';
+      public $host = 'myprac-server.database.windows.net';
+      private $user = 'randy';
+      private $password = 'Sopoala717';
+      public $db = 'myprac-db';
       public $conn;
 
       function __construct(){}
